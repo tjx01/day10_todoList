@@ -5,17 +5,16 @@ import {TodoContext} from "./context/TodoContext";
 import {TodoList} from "./component/TodoList";
 
 export const initState = [
-    {id: 1, text: "the first todo", done: false},
-    {id: 2, text: "the second todo", done: true},
+
 ];
 
 function App() {
     const [state, dispatch] = useReducer(todoReducer, initState);
     return (
         <div>
+            <h1>TODO list</h1>
             <TodoContext.Provider value={{state, dispatch}}>
-                <TodoList>
-                </TodoList>
+                <TodoList />
             </TodoContext.Provider>
         </div>
     );
