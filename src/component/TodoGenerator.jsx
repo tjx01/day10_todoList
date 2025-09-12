@@ -8,7 +8,7 @@ export function TodoGenerator() {
 
     function addItem() {
         if (inputValue.trim() === "") {
-            alert("Input cannot be empty");
+            alert("输入不能为空");
             return;
         }
         dispatch({
