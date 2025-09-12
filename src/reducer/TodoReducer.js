@@ -15,6 +15,16 @@ export function todoReducer(state, action) {
 
                 return value
             })
+        case "ADD_TODO":
+            const nextId = state.length > 0 ? Math.max(...state.map(item => item.id)) + 1 : 1;
+            return [
+                ...state,
+                {
+                    id: nextId,
+                    text: action.payload.text,
+                    done: false
+                }
+            ];
         default:
             return state;
     }

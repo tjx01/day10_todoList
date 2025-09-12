@@ -1,8 +1,8 @@
 import './App.css';
 import {useReducer} from "react";
 import {todoReducer} from "./reducer/TodoReducer";
-import {TodoGroup} from "./component/TodoGroup";
 import {TodoContext} from "./context/TodoContext";
+import {TodoList} from "./component/TodoList";
 
 export const initState = [
     {id: 1, text: "the first todo", done: false},
@@ -14,7 +14,8 @@ function App() {
     return (
         <div>
             <TodoContext.Provider value={{state, dispatch}}>
-                <TodoGroup/>
+                <TodoList>
+                </TodoList>
             </TodoContext.Provider>
         </div>
     );
