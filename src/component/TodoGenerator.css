@@ -6,5 +6,12 @@
     text-align: center;
 }
 .addButton{
-    /*display: inline-block;*/
+    width: 100px;
+    height: 35px;
+    margin-left:8px;
+    font-size: 16px;
+    color: white;
+    background-color: #2B80F2;
+    border: none;
+    border-radius: 5%;
 }
