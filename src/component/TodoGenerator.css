@@ -1,0 +1,10 @@
+.todo-item{
+    width: 320px;
+    padding: 16px;
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+}
+.addButton{
+    /*display: inline-block;*/
+}

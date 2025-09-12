@@ -1,5 +1,6 @@
 import React, {useContext, useState} from "react";
 import {TodoContext} from "../context/TodoContext";
+import './TodoGenerator.css';
 
 export function TodoGenerator() {
     const [inputValue, setInputValue] = useState("");
@@ -19,13 +20,13 @@ export function TodoGenerator() {
 
 
     return (
-        <div>
+        <div className={"generator"}>
             <input
                 className={"todo-item"}
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
             />
-            <button onClick={addItem}>Add</button>
+            <button onClick={addItem} className={"addButton"}>Add</button>
         </div>
     );
 }
