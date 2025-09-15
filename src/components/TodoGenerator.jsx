@@ -2,6 +2,7 @@ import React, {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import './TodoGenerator.css';
 import {useTodoServers} from "../useTodoServers";
+import { Button, Input} from 'antd';
 
 export function TodoGenerator() {
     const [inputValue, setInputValue] = useState("");
@@ -25,12 +26,8 @@ export function TodoGenerator() {
 
     return (
         <div className={"generator"}>
-            <input
-                className={"todo-item"}
-                value={inputValue}
-                onChange={e => setInputValue(e.target.value)}
-            />
-            <button onClick={addItem} className={"addButton"}>Add</button>
+            <Input placeholder="输入待办" className={"todo-input"} value={inputValue} onChange={e => setInputValue(e.target.value)}/>
+            <Button type="primary" onClick={addItem} className={"addButton"}>Add</Button>
         </div>
     );
 }

@@ -1,17 +1,11 @@
-.todo-item{
+.todo-input{
     width: 320px;
     padding: 16px;
     border: 1px solid black;
     margin-top: 20px;
     text-align: center;
+    margin-left: -60px;
 }
 .addButton{
-    width: 90px;
-    height: 20px;
-    background-color: #2B80F2;
-    border: none;
-    font-size: 17px;
     margin-left: 10px;
-    color: white;
-    border-radius: 5%;
 }
