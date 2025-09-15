@@ -7,6 +7,7 @@
 
 .deleteBtn{
     background-color: red;
+    font-size: 17px;
     border: none;
     color: white;
     border-radius: 20%;
@@ -15,6 +16,7 @@
 .detailsBtn{
     background-color: #2B80F2;
     border: none;
+    font-size: 17px;
     color: white;
     border-radius: 10%;
 }

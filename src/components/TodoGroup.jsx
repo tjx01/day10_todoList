@@ -3,6 +3,7 @@ import {TodoContext} from "../contexts/TodoContext";
 import {TodoItem} from "./TodoItem";
 import './TodoGroup.css';
 import {useNavigate} from "react-router";
+import {api} from "../api/mockApi";
 
 export function TodoGroup() {
     const {state, dispatch} = useContext(TodoContext)
@@ -13,7 +14,11 @@ export function TodoGroup() {
             alert("事件未完成，不能删除");
             return;
         }
-        dispatch({ type: "DELETE_TODO", payload: { id } });
+        api.delete(`todos/${id}`)
+            .then(() => {
+                alert("删除成功");
+                dispatch({ type: "DELETE_TODO", payload: { id } });
+            })
     }
 
 
