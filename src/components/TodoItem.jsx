@@ -1,20 +1,11 @@
 import {TodoContext} from "../contexts/TodoContext";
 import {useContext} from "react";
 import './TodoItem.css';
-import {api} from "../api/mockApi";
-
-function updateTodoDone(props) {
-    return api.put(`todos/${props.todo.id}`, {
-        id: props.todo.id,
-        text: props.todo.text,
-        done: !props.todo.done
-    })
-        .then(res => res.data);
-}
+import {useTodoServers} from "../useTodoServers";
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext)
-
+    const {updateTodoDone} = useTodoServers();
 
     function toggleTodo() {
         updateTodoDone(props)
