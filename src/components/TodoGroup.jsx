@@ -5,6 +5,11 @@ import './TodoGroup.css';
 import {useNavigate} from "react-router";
 import {api} from "../api/mockApi";
 
+function deleteTodoId(id) {
+    const promise = api.delete(`todos/${id}`);
+    return promise;
+}
+
 export function TodoGroup() {
     const {state, dispatch} = useContext(TodoContext)
     const navigate = useNavigate();
@@ -14,7 +19,7 @@ export function TodoGroup() {
             alert("事件未完成，不能删除");
             return;
         }
-        api.delete(`todos/${id}`)
+        deleteTodoId(id)
             .then(() => {
                 alert("删除成功");
                 dispatch({ type: "DELETE_TODO", payload: { id } });

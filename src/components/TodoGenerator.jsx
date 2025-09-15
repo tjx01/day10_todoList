@@ -3,6 +3,11 @@ import {TodoContext} from "../contexts/TodoContext";
 import './TodoGenerator.css';
 import {api} from "../api/mockApi";
 
+function createTodo(inputValue) {
+    return api.post("todos", {text: inputValue.trim(), done: false})
+        .then(res => res.data);
+}
+
 export function TodoGenerator() {
     const [inputValue, setInputValue] = useState("");
     const {dispatch} = useContext(TodoContext)
@@ -12,8 +17,7 @@ export function TodoGenerator() {
             alert("输入不能为空");
             return;
         }
-        api.post("todos", {text: inputValue.trim(), done: false})
-            .then(res => res.data)
+        createTodo(inputValue)
             .then(todo => {
                 dispatch({
                     type: "ADD_TODO",

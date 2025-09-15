@@ -24,8 +24,7 @@ nav a {
 
 nav a:hover,
 nav a:focus-visible {
-    background: var(--nav-hover-bg);
-    color: var(--nav-hover-color);
+    background: var(--nav-active-bg);
     outline: none;
 }
 
