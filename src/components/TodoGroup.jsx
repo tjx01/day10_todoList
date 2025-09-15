@@ -18,10 +18,9 @@ export function TodoGroup() {
         deleteTodoId(id)
             .then(() => {
                 alert("删除成功");
-                dispatch({ type: "DELETE_TODO", payload: { id } });
+                dispatch({type: "DELETE_TODO", payload: {id}});
             })
     }
-
 
     function enterDetails(id) {
         navigate(`/todos/${id}`);
@@ -33,7 +32,7 @@ export function TodoGroup() {
                 return <div className={"todo-group"} key={index}>
                     <TodoItem todo={item} key={index} index={index}/>
                     <button className={"deleteBtn"} onClick={() => deleteItem(item.id, item.done)}>X</button>
-                    <button className={"detailsBtn"} onClick={()=>enterDetails(item.id)}>details</button>
+                    <button className={"detailsBtn"} onClick={() => enterDetails(item.id)}>details</button>
                 </div>
             })
         }

@@ -7,14 +7,13 @@ export function useTodoServers() {
     }
 
     const deleteTodoId = id => {
-        const promise = api.delete(`todos/${id}`);
-        return promise;
+        return api.delete(`todos/${id}`);
     };
 
-    const updateTodoDone = props => api.put(`todos/${props.todo.id}`, {
-        id: props.todo.id,
-        text: props.todo.text,
-        done: !props.todo.done
+    const updateTodoDone = todo => api.put(`todos/${todo.id}`, {
+        id: todo.id,
+        text: todo.text,
+        done: !todo.done
     })
         .then(res => res.data);
 

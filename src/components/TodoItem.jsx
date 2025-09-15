@@ -8,7 +8,7 @@ export function TodoItem(props) {
     const {updateTodoDone} = useTodoServers();
 
     function toggleTodo() {
-        updateTodoDone(props)
+        updateTodoDone(props.todo)
             .then(todo => {
                 dispatch({
                     type: "UPDATE_TODO",

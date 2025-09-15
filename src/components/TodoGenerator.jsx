@@ -23,7 +23,6 @@ export function TodoGenerator() {
         setInputValue("");
     }
 
-
     return (
         <div className={"generator"}>
             <input
