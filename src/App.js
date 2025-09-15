@@ -2,11 +2,38 @@ import './App.css';
 import {useReducer} from "react";
 import {todoReducer} from "./reducer/TodoReducer";
 import {TodoContext} from "./context/TodoContext";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 import {TodoList} from "./component/TodoList";
 
-export const initState = [
+function DefaultLayout() {
+    return <div>
+        <header>
+            <nav>
+                <ul>
+                    <li><NavLink to={"/"}>Home</NavLink></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <Outlet/>
+        </main>
+    </div>;
+}
 
-];
+const routes = createBrowserRouter([
+    {
+        path: "/",
+        element: <DefaultLayout/>,
+        children: [
+            {
+                path: "/",
+                element: <TodoList/>
+            }
+        ]
+    }
+])
+
+export const initState = [];
 
 function App() {
     const [state, dispatch] = useReducer(todoReducer, initState);
@@ -14,7 +41,7 @@ function App() {
         <div>
             <h1>TODO list</h1>
             <TodoContext.Provider value={{state, dispatch}}>
-                <TodoList />
+                <RouterProvider router={routes}/>
             </TodoContext.Provider>
         </div>
     );
