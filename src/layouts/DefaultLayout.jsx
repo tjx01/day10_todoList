@@ -1,20 +1,43 @@
 import {NavLink, Outlet} from "react-router";
-import "./DefaultLayout.css"
+import { Layout, Menu} from 'antd';
+import {useState} from "react";
+
+const { Header, Footer, Sider, Content } = Layout;
 
 export function DefaultLayout() {
-    return <div className={"app-container"}>
-        <header>
-            <nav>
-                <ul>
-                    <li><NavLink to={"/"}>Home</NavLink></li>
-                    <li><NavLink to={"/todos/done"}>todo done</NavLink></li>
-                    <li><NavLink to={"/about"}>About</NavLink></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <h1>TODO list</h1>
+    const [current, setCurrent] = useState('home');
+
+    const onClick = (e) => {
+        setCurrent(e.key);
+    };
+
+    const items = [
+        {
+            key: 'home',
+            label: <NavLink to={"/"}>Home</NavLink>
+        },
+        {
+            key: 'todos',
+            label: <NavLink to={"/todos/done"}>Todos Done</NavLink>
+        },
+        {
+            key: 'about',
+            label: <NavLink to={"/about"}>About</NavLink>
+        },
+    ]
+
+    return <Layout>
+        <Header>
+            <Menu onClick={onClick}
+                  selectedKeys={[current]}
+                  theme="dark"
+                  mode="horizontal" items={items} />
+        </Header>
+        <Content>
             <Outlet/>
-        </main>
-    </div>;
+        </Content>
+        <Footer>
+            @Copyright
+        </Footer>
+    </Layout>
 }
