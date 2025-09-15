@@ -13,7 +13,7 @@ export function useTodoServers() {
     const updateTodoDone = todo => api.put(`todos/${todo.id}`, {
         id: todo.id,
         text: todo.text,
-        done: !todo.done
+        done: todo.done
     })
         .then(res => res.data);
 

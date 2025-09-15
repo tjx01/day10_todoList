@@ -10,3 +10,6 @@
 .todo-item .todo-done{
     text-decoration: line-through;
 }
+.editIcon{
+    float: right;
+}
