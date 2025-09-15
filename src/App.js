@@ -2,7 +2,7 @@ import './App.css';
 import {useReducer} from "react";
 import {todoReducer} from "./reducer/TodoReducer";
 import {TodoContext} from "./context/TodoContext";
-import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider, useRouteError} from "react-router";
 import {TodoList} from "./component/TodoList";
 
 function DefaultLayout() {
@@ -20,10 +20,20 @@ function DefaultLayout() {
     </div>;
 }
 
+function ErrorPage() {
+    const error = useRouteError();
+    return <div>
+        {error.status === 404
+            ? <div>404 not found</div>
+            : <div>{JSON.stringify(error)}</div>}
+    </div>;
+}
+
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <DefaultLayout/>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/",
