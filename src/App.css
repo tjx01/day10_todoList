@@ -2,4 +2,30 @@ body {
     display: grid;
     place-items: center;
     text-align: center;
+    width: 100%;
+    margin: 0;
+    font-family: system-ui, Arial, sans-serif;
+}
+#root{
+    width: 100%;
+}
+:root {
+    --nav-bg: #91a7c6;
+    --nav-active-bg: #2c3e50;
+    --nav-hover-bg: #ffffff;
+    --nav-color: #ffffff;
+    --nav-hover-color: #2c3e50;
+    --transition: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.app-container {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
