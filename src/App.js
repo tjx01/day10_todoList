@@ -1,10 +1,10 @@
 import './App.css';
 import {useReducer} from "react";
 import {todoReducer} from "./reducer/TodoReducer";
-import {TodoContext} from "./context/TodoContext";
+import {TodoContext} from "./contexts/TodoContext";
 import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
-import {TodoList} from "./component/TodoList";
 import {ErrorPage} from "./pages/ErrorPage";
+import {HomePage} from "./pages/HomePage";
 
 function DefaultLayout() {
     return <div>
@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <TodoList/>
+                element: <HomePage />
             }
         ]
     }
