@@ -6,6 +6,7 @@ export function TodoDonePage() {
     const {state} = useContext(TodoContext)
 
     return <div>
+        <h1>Todo List</h1>
         {
             state.filter(item => item.done).map((item, index) => (
                 <div className={"todo-group"} key={index}>

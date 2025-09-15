@@ -2,6 +2,7 @@ import {useParams} from "react-router";
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {TodoItem} from "../components/TodoItem";
+import './TodoDetailPage.css';
 
 export function TodoDetailPage() {
     const {id} = useParams();
@@ -10,7 +11,8 @@ export function TodoDetailPage() {
     if (todo.length === 0) {
         return <div>Not Found Todo</div>;
     }
-    return <div>
+    return <div className={"todo-detail-page"}>
+        <h1>Todo List</h1>
         <TodoItem todo={todo[0]} index={id}/>
     </div>
 }

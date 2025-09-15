@@ -1,7 +1,7 @@
-import {TodoList} from "../components/TodoList";
+import {TodoListPage} from "./TodoListPage";
 
 export function HomePage() {
     return <div>
-        <TodoList/>
+        <TodoListPage/>
     </div>;
 }
