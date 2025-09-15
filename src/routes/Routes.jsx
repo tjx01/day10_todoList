@@ -17,7 +17,7 @@ export const routes = createBrowserRouter([
             {
                 path: "/todos/:id",
                 element: <TodoDetailPage/>
-            }
+            },
         ]
     }
 ])

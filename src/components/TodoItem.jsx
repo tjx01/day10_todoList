@@ -4,7 +4,8 @@ import {useContext} from "react";
 import './TodoItem.css';
 
 export function TodoItem(props) {
-    const {state, dispatch} = useContext(TodoContext)
+    const {dispatch} = useContext(TodoContext)
+
 
     function makeAsDone() {
         dispatch({
