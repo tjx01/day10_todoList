@@ -1,7 +1,8 @@
 import {NavLink, Outlet} from "react-router";
+import "./DefaultLayout.css"
 
 export function DefaultLayout() {
-    return <div>
+    return <div className={"app-container"}>
         <header>
             <nav>
                 <ul>
@@ -12,6 +13,7 @@ export function DefaultLayout() {
             </nav>
         </header>
         <main>
+            <h1>TODO list</h1>
             <Outlet/>
         </main>
     </div>;
