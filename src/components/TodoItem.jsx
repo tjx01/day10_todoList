@@ -16,12 +16,12 @@ export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext)
 
 
-    function makeAsDone() {
+    function toggleTodo() {
         updateTodoDone(props)
-            .then(() => {
+            .then(todo => {
                 dispatch({
-                    type: "TOGGLE_TODO",
-                    payload: {id: props.todo.id}
+                    type: "UPDATE_TODO",
+                    payload: todo
                 })
             })
     }
@@ -29,7 +29,7 @@ export function TodoItem(props) {
     return <div className={"todo-item"}>
         <span
             className={props.todo.done ? "todo-done" : ""}
-            onClick={makeAsDone}
+            onClick={toggleTodo}
         >
             {props.todo.text}
         </span>

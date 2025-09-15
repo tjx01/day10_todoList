@@ -1,7 +1,6 @@
 export function todoReducer(state, action) {
     switch (action.type) {
         case "TOGGLE_TODO":
-            /// copy
             const newState = [...state];
             const id = action.payload.id;
             return newState.map((value) => {
@@ -21,6 +20,13 @@ export function todoReducer(state, action) {
             return state.filter(item => item.id !== action.payload.id);
         case "LOAD_TODOS":
             return action.payload;
+        case "UPDATE_TODO":
+            return state.map(todo => {
+                if (todo.id === action.payload.id) {
+                    return action.payload;
+                }
+                return todo;
+            })
         default:
             return state;
     }
