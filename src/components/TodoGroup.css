@@ -4,3 +4,17 @@
     justify-content: center;
     gap: 8px;
 }
+
+.deleteBtn{
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 20%;
+}
+
+.detailsBtn{
+    background-color: #2B80F2;
+    border: none;
+    color: white;
+    border-radius: 10%;
+}
