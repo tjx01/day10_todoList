@@ -2,43 +2,8 @@ import './App.css';
 import {useReducer} from "react";
 import {todoReducer} from "./reducer/TodoReducer";
 import {TodoContext} from "./contexts/TodoContext";
-import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
-import {ErrorPage} from "./pages/ErrorPage";
-import {HomePage} from "./pages/HomePage";
-import {TodoDetailPage} from "./pages/TodoDetailPage";
-
-function DefaultLayout() {
-    return <div>
-        <header>
-            <nav>
-                <ul>
-                    <li><NavLink to={"/"}>Home</NavLink></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <Outlet/>
-        </main>
-    </div>;
-}
-
-const routes = createBrowserRouter([
-    {
-        path: "/",
-        element: <DefaultLayout/>,
-        errorElement: <ErrorPage/>,
-        children: [
-            {
-                path: "/",
-                element: <HomePage />
-            },
-            {
-                path: "/todos/:id",
-                element: <TodoDetailPage />
-            }
-        ]
-    }
-])
+import {RouterProvider} from "react-router";
+import {routes} from "./routes/Routes";
 
 export const initState = [
     {id: 1, text: "学习 React", done: false},
