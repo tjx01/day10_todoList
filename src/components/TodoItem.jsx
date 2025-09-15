@@ -2,16 +2,21 @@
 import {TodoContext} from "../contexts/TodoContext";
 import {useContext} from "react";
 import './TodoItem.css';
+import {api} from "../api/mockApi";
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext)
 
 
     function makeAsDone() {
-        dispatch({
-            type: "TOGGLE_TODO",
-            payload: {id: props.todo.id}
-        })
+        api.put(`todos/${props.todo.id}`, {id: props.todo.id, text: props.todo.text, done: !props.todo.done})
+            .then(res => res.data)
+            .then(() => {
+                dispatch({
+                    type: "TOGGLE_TODO",
+                    payload: {id: props.todo.id}
+                })
+            })
     }
 
     return <div className={"todo-item"}>
